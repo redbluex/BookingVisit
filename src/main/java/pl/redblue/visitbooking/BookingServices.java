@@ -24,6 +24,16 @@ public class BookingServices {
 	public void addNewBooking(Booking book) {
 		bookingRepository.save(book);
 	}
+	
+	public List<Booking> getAllBookingByName(String name){
+		List<Booking> bookingz = new ArrayList<>();
+		bookingRepository.findAllByName(name).forEach(bookingz::add);
+		return bookingz;
+		
+	}
+	
+
+
 
 	
 }

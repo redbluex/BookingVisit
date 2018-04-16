@@ -1,5 +1,7 @@
 package pl.redblue.visitbooking;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +17,8 @@ public class Booking {
 	private String month;
 	private String time;
 	private String name;
+	private boolean free;
+	
 	
 	public Booking() {
 		
@@ -26,6 +30,7 @@ public class Booking {
 		this.month = month;
 		this.time = time;
 		this.name = name;
+		this.free = true;
 		
 	}
 	
@@ -35,6 +40,7 @@ public class Booking {
 		this.month = month;
 		this.time = time;
 		this.name = name;
+		this.free = true;
 	}
 	
 	
@@ -67,6 +73,14 @@ public class Booking {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public boolean isFree() {
+		return free;
+	}
+
+	public void setFree(boolean free) {
+		this.free = free;
 	}
 	
 	

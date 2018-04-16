@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,12 @@ public class BookingController {
 		return bookingServices.getAllBooking();
 	}
 	
-	
-	
+	@RequestMapping("/bookingss/{name}")
+	public List<Booking> getBookingsByName(@PathVariable String name){
+		return bookingServices.getAllBookingByName(name);
+	}
 
+	
+	
 }
+
