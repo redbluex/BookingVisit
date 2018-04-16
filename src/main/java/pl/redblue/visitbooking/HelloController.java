@@ -52,5 +52,11 @@ public class HelloController {
 		bookingServices.addNewBooking(booking);
         return "result";
     }
+	
+	@RequestMapping("/singleday")
+	public String singleday(@RequestParam(name="day", required=false, defaultValue="World") String day, Model model) {
+        model.addAttribute("day", day);
+		return "singleday";
+	}
 
 }
