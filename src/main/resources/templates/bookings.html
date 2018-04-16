@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h2>Twoje wizyty</h2>
+
+<p th:text="${book.get(0).id}+' '+${book.get(0).day}+' '+${book.get(0).month}+' '+ ${book.get(0).time} +' '+${book.get(0).name}" />
+
+</body>
+</html>
