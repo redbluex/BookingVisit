@@ -13,17 +13,16 @@ public class BookingServices {
 	@Autowired
 	BookingRepository bookingRepository;
 	
-	private List<Booking> booking = new ArrayList<>(Arrays.asList(
-			new Booking("1", "10", "4", "20", "wizyta"),
-			new Booking("2", "11", "4", "19", "spotkanie"),
-			new Booking("3", "14", "4", "20", "kolacja")
-			));
+	private List<Booking> booking;
+	
 	public List<Booking> getAllBooking() {
-		return booking;
+		List<Booking> bookings = new ArrayList<>();
+		bookingRepository.findAll().forEach(bookings::add);
+		return bookings;
 	}
 	
 	public void addNewBooking(Booking book) {
-		booking.add(book);
+		bookingRepository.save(book);
 	}
 
 	

@@ -1,24 +1,35 @@
 package pl.redblue.visitbooking;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Booking {
 	
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String day;
 	private String month;
 	private String time;
 	private String name;
 	
-	
 	public Booking() {
 		
 	}
 	
-	public Booking(String id, String day, String month, String time, String name) {
+	public Booking(String day, String month, String time, String name) {
+		this();
+		this.day = day;
+		this.month = month;
+		this.time = time;
+		this.name = name;
+		
+	}
+	
+	public Booking(int id, String day, String month, String time, String name) {
 		this.id = id;
 		this.day = day;
 		this.month = month;
@@ -27,10 +38,10 @@ public class Booking {
 	}
 	
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getDay() {
