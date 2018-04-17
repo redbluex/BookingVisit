@@ -20,9 +20,14 @@ public class BookingController {
 		return bookingServices.getAllBooking();
 	}
 	
-	@RequestMapping("/bookingss/{name}")
-	public List<Booking> getBookingsByName(@PathVariable String name){
-		return bookingServices.getAllBookingByName(name);
+	@RequestMapping("/bookingss/{day}")
+	public List<Booking> getBookingsByName(@PathVariable String day){
+		return bookingServices.getAllBookingByName(day);
+	}
+	
+	@RequestMapping("/bookings/{time}")
+	public Booking getBookingByTime() {
+		return bookingServices.findByTime("6:00");
 	}
 
 	

@@ -55,6 +55,11 @@ public class HelloController {
 	
 	@RequestMapping("/singleday")
 	public String singleday(@RequestParam(name="day", required=false, defaultValue="World") String day, Model model) {
+		model.addAttribute("bookz", bookingServices.findByTime("6:00"));
+		model.addAttribute("bookz2", bookingServices.findByTime("7:00"));
+		model.addAttribute("bookz3", bookingServices.findByTime("8:00"));
+		model.addAttribute("bookz4", bookingServices.findByTime("9:00"));
+		model.addAttribute("bookz5", bookingServices.findByTime("10:00"));
         model.addAttribute("day", day);
 		return "singleday";
 	}

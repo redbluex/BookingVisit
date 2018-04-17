@@ -11,18 +11,20 @@
 
 
 <li>6:00</li>
-<li>Zapisz sie</li>
+<li th:if="${bookz==null}" th:text="'Zapisz sie'"></li>
+<li th:if="${bookz!=null && bookz.time=='6:00'}" th:text="'brak zapisu'"></li>
 <li>7:00</li>
-<li>Zapisz sie</li>
+<li th:if="${bookz2==null}" th:text="'Zapisz sie'"></li>
+<li th:if="${bookz2!=null && bookz2.time=='7:00'}" th:text="'brak zapisu'"></li>
 <li>8:00</li>
-<li>Zapisz sie</li>
+<li th:if="${bookz3==null}" th:text="'Zapisz sie'"></li>
+<li th:if="${bookz3!=null && bookz3.time=='8:00'}" th:text="'brak zapisu'"></li>
 <li>9:00</li>
-<li>Zapisz sie</li>
+<li th:if="${bookz4==null}" th:text="'Zapisz sie'"></li>
+<li th:if="${bookz4!=null && bookz4.time=='9:00'}" th:text="'brak zapisu'"></li>
 <li>10:00</li>
-<li>Zapisz sie</li>
-<li>11:00</li>
-<li>Zapisz sie</li>
-
+<li th:if="${bookz5==null}" th:text="'Zapisz sie'"></li>
+<li th:if="${bookz5!=null && bookz5.time=='10:00'}" th:text="'brak zapisu'"></li>
 
 </ul>
 

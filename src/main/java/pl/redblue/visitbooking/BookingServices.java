@@ -25,13 +25,18 @@ public class BookingServices {
 		bookingRepository.save(book);
 	}
 	
-	public List<Booking> getAllBookingByName(String name){
+	public List<Booking> getAllBookingByName(String day){
 		List<Booking> bookingz = new ArrayList<>();
-		bookingRepository.findAllByName(name).forEach(bookingz::add);
+		bookingRepository.findAllByDay(day).forEach(bookingz::add);
 		return bookingz;
 		
 	}
 	
+	public Booking findByTime(String time) {
+		Booking b = new Booking();
+		b = bookingRepository.findByTime(time);
+		return b;
+	}
 
 
 
