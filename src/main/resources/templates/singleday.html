@@ -11,7 +11,7 @@
 
 
 <li>6:00</li>
-<li th:if="${bookz==null}" th:text="'Zapisz sie'"></li>
+<a th:href="@{/singleday/}+${day}+'/6:00/formbook'"><li th:if="${bookz==null}" th:text="'Zapisz sie'"></li></a>
 <li th:if="${bookz!=null && bookz.time=='6:00'}" th:text="'brak zapisu'"></li>
 <li>7:00</li>
 <li th:if="${bookz2==null}" th:text="'Zapisz sie'"></li>

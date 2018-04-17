@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,14 +48,14 @@ public class HelloController {
 	
 	
 	
-	@PostMapping("/formbook")
-    public String greetingSubmit(@ModelAttribute Booking booking) {
+	@PostMapping("/singleday/{day}/{time}/formbook")
+    public String greetingSubmit(@PathVariable String day,@PathVariable String time, @ModelAttribute Booking booking) {
 		bookingServices.addNewBooking(booking);
         return "result";
     }
 	
-	@RequestMapping("/singleday")
-	public String singleday(@RequestParam(name="day", required=false, defaultValue="World") String day, Model model) {
+	@RequestMapping("/singleday/{day}")
+	public String singleday(@PathVariable String day, Model model) {
 		model.addAttribute("bookz", bookingServices.findByTime("6:00"));
 		model.addAttribute("bookz2", bookingServices.findByTime("7:00"));
 		model.addAttribute("bookz3", bookingServices.findByTime("8:00"));
@@ -63,5 +64,12 @@ public class HelloController {
         model.addAttribute("day", day);
 		return "singleday";
 	}
+	
+	@GetMapping("/singleday/{day}/{time}/formbook")
+		public String formWithDay(@PathVariable String day,@PathVariable String time, Model model) {
+		model.addAttribute("booking", new Booking());
+		return "formbook";
+		}
+	
 
 }
